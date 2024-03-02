@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, List } from 'antd';
+import Actions from '../Buttons/Actions';
 
 interface DataType {
     gender: string;
@@ -62,7 +63,7 @@ const Content: React.FC = () => {
                             title={<a href="https://ant.design">{item.name.last}</a>}
                             description={item.email}
                         />
-                        <div>Content</div>
+                        <Actions />
                     </List.Item>
                 )}
             />

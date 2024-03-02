@@ -9,3 +9,4 @@ npm i react-router-dom
 npm i @types/react-redux
 npm i @types/react-router-dom
 npm i antd --save
+npm i dotenv
