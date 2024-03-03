@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, List } from 'antd';
+import { List } from 'antd';
 import Actions from '../Buttons/Actions';
 
 interface DataType {
-    gender: string;
     name: {
-        title: string;
-        first: string;
-        last: string;
+        firstname: string;
+        lastname: string;
     };
     email: string;
-    picture: {
-        large: string;
-        medium: string;
-        thumbnail: string;
-    };
-    nat: string;
 }
 
 const Content: React.FC = () => {
@@ -27,10 +19,10 @@ const Content: React.FC = () => {
             return;
         }
         setLoading(true);
-        fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
+        fetch("https://fakestoreapi.com/users")
             .then((res) => res.json())
             .then((body) => {
-                setData([...data, ...body.results]);
+                setData([...data, ...body]);
                 setLoading(false);
             })
             .catch(() => {
@@ -59,8 +51,7 @@ const Content: React.FC = () => {
                 renderItem={(item) => (
                     <List.Item key={item.email}>
                         <List.Item.Meta
-                            avatar={<Avatar src={item.picture.large} />}
-                            title={<a href="https://ant.design">{item.name.last}</a>}
+                            title={<a href="https://ant.design">{item.name.firstname} {item.name.lastname}</a>}
                             description={item.email}
                         />
                         <Actions />
